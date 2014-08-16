@@ -1,0 +1,84 @@
+﻿<Page
+    x:Class="WordsToolkit.ViewLibrary"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WordsToolkit"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <ScrollViewer HorizontalScrollMode="Enabled" VerticalScrollMode="Enabled" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid x:Name="LayoutRoot" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition ></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+            <StackPanel Orientation="Horizontal" x:Name="Phraselibrary" Grid.Row="0" Grid.Column="0">
+                <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition ></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                    <Grid x:Name="btnsGrid" Grid.Row="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="5*"></RowDefinition>
+                            <RowDefinition Height="5*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition ></ColumnDefinition>
+                            <ColumnDefinition ></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Button x:Name="btnImportPhraselist" Visibility="Visible" Grid.Row="0" Grid.Column="0" Content="导入个人必应单词表" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="63" Width="200"  Click="btnImportPhraselist_Click"/>
+                        <Button x:Name="btnFlush" Visibility="Visible" Grid.Row="0" Grid.Column="1" Content="刷新" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="63" Width="200"  Click="btnFlush_Click"/>
+                        <Button x:Name="btnDownloadWords" Visibility="Collapsed" Grid.Row="1" Grid.Column="0" Content="下载单词表" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="63"  Click="btnDownloadWords_Click"/>
+                        <Button x:Name="btnUploadWords" Visibility="Collapsed" Grid.Row="1" Grid.Column="1" Content="上传单词表" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="63"  Click="btnUploadWords_Click"/>  
+                    </Grid>
+                    <StackPanel Orientation="Vertical" Grid.Row="1">
+                        <TextBox x:Name="serverAddressField" Visibility="Collapsed" Text="http://localhost/BackgroundTransferSample/Upload.aspx"/>
+                        <ListView x:Name="PhraseList" Height="auto" Width="800" SelectionMode="Single">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Margin="5" RightTapped="StackPanel_RightTapped">
+                                        <TextBlock Text="{Binding Path=Eng}" Foreground="Red" FontWeight="Bold"></TextBlock>
+                                        <TextBlock TextWrapping="Wrap"  Text="{Binding Path=Defi}"></TextBlock>
+                                        <FlyoutBase.AttachedFlyout>
+                                            <MenuFlyout>
+                                                <MenuFlyoutItem Text="Edit" Click="MenuFlyoutItem_EditPhrase_Click"/>
+                                                <MenuFlyoutItem Text="Delete" Click="MenuFlyoutItem_DelPhrase_Click"/>
+                                            </MenuFlyout>
+                                        </FlyoutBase.AttachedFlyout>
+
+                                        <!--<MenuFlyoutItem CommandParameter="{Binding}"></MenuFlyoutItem>-->
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+
+            <Grid x:Name="Output" Grid.Row="1" Grid.Column="0" Visibility="Collapsed">
+                <ProgressBar x:Name="probar" Maximum="100" Minimum="0" SmallChange="1" Width="700" HorizontalAlignment="Left" Foreground="Yellow"
+                          Height="30" Margin="2,85,0,99"/>
+                <TextBlock x:Name="tbMsg" Margin="-2,0,102,181" />
+
+                <TextBox x:Name="outputField" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto" AcceptsReturn="True" MaxHeight="200" Width="500" MaxWidth="700" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <!-- Add Storyboards to the visual states below as necessary for supporting the various layouts for the output section -->
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup>
+                        <VisualState x:Name="OutputDefaultLayout"/>
+                        <VisualState x:Name="OutputBelow768Layout"/>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </Grid>
+
+        </Grid>
+    </ScrollViewer>
+</Page>
