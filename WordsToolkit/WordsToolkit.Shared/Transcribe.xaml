@@ -11,9 +11,21 @@
         <!--<local:ScenarioBindingConverter x:Key="ScenarioConverter"></local:ScenarioBindingConverter>-->
     </Page.Resources>
     
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock Name="txtEng" Style="{StaticResource SampleHeaderTextStyle}" HorizontalAlignment="Left" Foreground="White" Margin="384,157,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
-        <TextBlock Name="txtPhonetic" Style="{StaticResource SampleHeaderTextStyle}" HorizontalAlignment="Left" Foreground="White" Margin="384,208,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
-        <TextBlock Name="txtDefi" Style="{StaticResource SampleHeaderTextStyle}" HorizontalAlignment="Left" Foreground="White" Margin="381,102,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
+    <!--<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBlock Name="txtEng" Style="{StaticResource SampleHeaderTextStyle}" HorizontalAlignment="Left" Foreground="Red" Margin="384,157,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
+        <TextBlock Name="txtPhonetic" Style="{StaticResource SampleHeaderTextStyle}" HorizontalAlignment="Left" Foreground="Red" Margin="384,208,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
+        <TextBlock Name="txtDefi" Style="{StaticResource SampleHeaderTextStyle}" HorizontalAlignment="Left" Foreground="Red" Margin="381,102,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
+    </Grid>-->
+
+    <Grid x:Name="Output" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" ManipulationMode="None" IsDoubleTapEnabled="False" IsHoldingEnabled="False" IsRightTapEnabled="False" IsTapEnabled="False">
+        <StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                <Button x:Name="ScenarioReset" Content="Reset" Margin="0,0,0,25" Click="Scenario2Reset"/>
+            </StackPanel>
+            <Canvas x:Name="Scenario2Output" ManipulationMode="None">
+                <Rectangle x:Name="ManipulateMe" Width="200" Height="200" Stroke="Purple" StrokeThickness="5" Fill="Aqua" Margin="0, 0, 25, 25" ManipulationMode="None" IsDoubleTapEnabled="False" IsHoldingEnabled="False" IsRightTapEnabled="False" IsTapEnabled="False" />
+            </Canvas>
+        </StackPanel>
     </Grid>
+
 </Page>

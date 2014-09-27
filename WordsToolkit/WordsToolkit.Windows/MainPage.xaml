@@ -47,15 +47,15 @@
             </StackPanel>
             <StackPanel Grid.Row="3" Orientation="Vertical" Margin="10,0,5,10" VerticalAlignment="Bottom" >
                 <Image Source="Assets/microsoft-sdk.png"  Stretch="None" HorizontalAlignment="Left"/>
-                <TextBlock Text="&#xA9; Microsoft Corporation. All rights reserved." Foreground="White" Style="{StaticResource CopyrightTextStyle}"/>
+                <TextBlock Text="&#xA9; 籽藤" Foreground="White" Style="{StaticResource CopyrightTextStyle}"/>
                 <StackPanel x:Name="FooterPanel" Orientation="Horizontal" HorizontalAlignment="Left">
-                    <HyperlinkButton Content="Terms" Tag="http://www.microsoft.com/About/Legal/EN/US/IntellectualProperty/Copyright/default.aspx"
+                    <HyperlinkButton Content="Terms" Tag=""
                         Click="Footer_Click" FontSize="12" Style="{StaticResource HyperlinkStyle}"/>
                     <TextBlock Text="|" Style="{StaticResource SeparatorStyle}" VerticalAlignment="Center"/>
-                    <HyperlinkButton Content="Trademarks" Tag="http://www.microsoft.com/About/Legal/EN/US/IntellectualProperty/Trademarks/EN-US.aspx"
+                    <HyperlinkButton Content="Trademarks" Tag=""
                         Click="Footer_Click" FontSize="12" Style="{StaticResource HyperlinkStyle}"/>
                     <TextBlock Text="|"  Style="{StaticResource SeparatorStyle}" VerticalAlignment="Center"/>
-                    <HyperlinkButton Content="Privacy" Tag="http://privacy.microsoft.com" Click="Footer_Click" FontSize="12" Style="{StaticResource HyperlinkStyle}"/>
+                    <HyperlinkButton Content="Privacy" Tag="" Click="Footer_Click" FontSize="12" Style="{StaticResource HyperlinkStyle}"/>
                 </StackPanel>
             </StackPanel>
         </Grid>
